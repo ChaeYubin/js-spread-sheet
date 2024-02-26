@@ -125,8 +125,16 @@ function handleCellClick(cell) {
   const columnHeaderEl = getElFromRowCol(columnHeader.row, columnHeader.column);
   const rowHeaderEl = getElFromRowCol(rowHeader.row, rowHeader.column);
 
+  clearHeaderActiveStates();
   columnHeaderEl.classList.add("active");
   rowHeaderEl.classList.add("active");
+}
+
+function clearHeaderActiveStates() {
+  const headers = document.querySelectorAll(".header");
+  headers.forEach((header) => {
+    header.classList.remove("active");
+  });
 }
 
 function getElFromRowCol(row, col) {
